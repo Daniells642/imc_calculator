@@ -21,7 +21,7 @@ void main(List<String> arguments) {
   //print(Pessoa1.getAltura());
 
   print("Olá,  ${Pessoa1.getNome()}");
-  print(calcularImc(Pessoa1.getPeso(), Pessoa1.getAltura()));
+  print(calcularImc(Pessoa1.getPeso(), Pessoa1.getAltura()).toStringAsFixed(2));
   
 
 
