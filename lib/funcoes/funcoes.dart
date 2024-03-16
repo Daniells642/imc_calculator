@@ -5,7 +5,6 @@ void validaEntrada(String entrada){
   if (entrada.trim() == ""){
       throw ArgumentError("Por favor digite uma entrada válida.");
   }
-
 }
 
 String lerConsoleStringComTexto(String texto){
@@ -16,21 +15,13 @@ String lerConsoleStringComTexto(String texto){
 String lerConsoleString(){
     var entrada = stdin.readLineSync(encoding: utf8) ?? "0";// se o valor for nulo, vai ser convertido para 0.
     validaEntrada(entrada);
-    
     return entrada;
 }
 
-/*int lerConsoleInt(){
-    var line = lerConsoleString();
-    var lineInt = int.parse(line ?? "0");// se o valor for nulo, vai ser convertido para 0.
-    return lineInt;
-}
-*/
 int lerConsoleInt(){
   var entrada = lerConsoleString();
   validaEntrada(entrada);
   return int.parse(entrada);
-   
 }
 
 int lerIntComTexto( String texto){
@@ -38,12 +29,10 @@ int lerIntComTexto( String texto){
   return lerConsoleInt();
     }
 
-
 double lerConsoleDouble(){
     var entrada = lerConsoleString();
     validaEntrada(entrada);
     return double.parse(entrada);
-    
   }
 
 double lerDoubleComTexto( String texto){
@@ -51,13 +40,11 @@ double lerDoubleComTexto( String texto){
   return lerConsoleDouble();
 }
 
-
 double calcularImc(int peso, double altura) {
 
   double imc = 0;
 
   imc = peso / (altura * altura);
-
 
   switch (imc) {
     case < 16:
@@ -88,5 +75,4 @@ double calcularImc(int peso, double altura) {
       print('Operação inválida');
   }
   return imc;
-
 }
