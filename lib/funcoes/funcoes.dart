@@ -1,22 +1,57 @@
 import 'dart:convert';
 import 'dart:io';
 
-String lerConsole(){
-    var line = stdin.readLineSync(encoding: utf8);
-    return line ?? "0";// se o valor for nulo, vai ser convertido para 0.
+void validaEntrada(String entrada){
+  if (entrada.trim() == ""){
+      throw ArgumentError("Por favor digite uma entrada válida.");
+  }
+
 }
 
-int lerConsoleInt(){
-    var line = stdin.readLineSync(encoding: utf8);
+String lerConsoleStringComTexto(String texto){
+    print(texto);
+    return lerConsoleString();
+}
+
+String lerConsoleString(){
+    var entrada = stdin.readLineSync(encoding: utf8) ?? "0";// se o valor for nulo, vai ser convertido para 0.
+    validaEntrada(entrada);
+    
+    return entrada;
+}
+
+/*int lerConsoleInt(){
+    var line = lerConsoleString();
     var lineInt = int.parse(line ?? "0");// se o valor for nulo, vai ser convertido para 0.
     return lineInt;
 }
+*/
+int lerConsoleInt(){
+  var entrada = lerConsoleString();
+  validaEntrada(entrada);
+  return int.parse(entrada);
+   
+}
+
+int lerIntComTexto( String texto){
+  print(texto);
+  return lerConsoleInt();
+    }
+
 
 double lerConsoleDouble(){
-    var line = stdin.readLineSync(encoding: utf8);
-    var lineDouble = double.parse(line ?? "0");// se o valor for nulo, vai ser convertido para 0.
-    return lineDouble;
+    var entrada = lerConsoleString();
+    validaEntrada(entrada);
+    return double.parse(entrada);
+    
+  }
+
+double lerDoubleComTexto( String texto){
+  print(texto);
+  return lerConsoleDouble();
 }
+
+
 double calcularImc(int peso, double altura) {
 
   double imc = 0;
